@@ -1911,6 +1911,16 @@ p {
       right: 5px; }
       .subscribe-section .subscribe-form button:hover {
         background-position: right center; }
+    .subscribe-section .subscribe-form .subscribe-submit-message {
+      margin-top: 12px;
+      min-height: 22px;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500; }
+    .subscribe-section .subscribe-form .subscribe-submit-message.text-danger {
+      color: #ffe0e0 !important; }
+    .subscribe-section .subscribe-form .subscribe-submit-message.text-success {
+      color: #fff !important; }
 
 /*===========================
     12. Contact CSS 
@@ -1998,6 +2008,10 @@ p {
         font-size: 20px;
         color: #1160a9;
         margin-bottom: 10px; }
+      .contact-section .contact-item-wrapper .contact-item .contact-content a {
+        color: inherit; }
+        .contact-section .contact-item-wrapper .contact-item .contact-content a:hover {
+          color: #1160a9; }
 
 .comment-form-wrapper,
 .contact-form-wrapper {
@@ -2109,8 +2123,25 @@ p {
     padding-left: 20px; }
     .footer .footer-widget ul li {
       list-style: disc; }
+  .footer .footer-widget ul.footer-contact li {
+    list-style: none;
+    position: relative; }
+    .footer .footer-widget ul.footer-contact li::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+      position: absolute;
+      left: -18px;
+      top: 15px; }
   .footer .footer-widget .footer-contact li p {
-    line-height: 35px; }
+    line-height: 35px;
+    margin: 0 0 10px; }
+    .footer .footer-widget .footer-contact li p a {
+      color: inherit; }
+      .footer .footer-widget .footer-contact li p a:hover {
+        color: #1160a9; }
   .footer .copyright-area {
     border-top: 2px solid rgba(106, 124, 146, 0.44);
     padding: 25px 0;

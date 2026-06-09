@@ -1860,7 +1860,7 @@
 
  
         <!-- ========================= contact-section start ========================= -->
-        <section id="contact" class="contact-section cta-bg img-bg pt-110 pb-100" style="background-image: url('assets/img/bg/cta-bg.jpg');">
+        <section id="contact-cta" class="contact-section cta-bg img-bg pt-110 pb-100" style="background-image: url('assets/img/bg/cta-bg.jpg');">
             <div class="container">                 
                 <div class="row align-items-center">
                     <div class="col-xl-5 col-lg-7">
@@ -1881,7 +1881,7 @@
         <!-- ========================= contact-section end ========================= -->
 
         <!-- ========================= contact-section start ========================= -->
-        <section class="contact-section pt-130 pb-100">
+        <section id="contact" class="contact-section pt-130 pb-100">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4">
@@ -1894,8 +1894,8 @@
                                         </div>
                                         <div class="contact-content">
                                             <h4>Contact</h4>
-                                            <p>+91 8870 876 432</p>
-                                            <p>corporate@viskez.com</p>
+                                            <p><a href="tel:+918870876432">+91 8870 876 432</a></p>
+                                            <p><a href="mailto:corporate@viskez.com">corporate@viskez.com</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1906,7 +1906,7 @@
                                         </div>
                                         <div class="contact-content">
                                             <h4>Address</h4>
-                                            <p>VISKEZ TECHNOLOGIES LLP, DOOR NO 16, 2nd STREET, SIVANATHAPURAM, SARAVANAMPATTI, COIMBATORE 641035,TAMILNADU, INDIA</p>
+                                            <p><a href="https://maps.app.goo.gl/XG6HqgQNK4wraYi8A" target="_blank" rel="noopener noreferrer">VISKEZ TECHNOLOGIES LLP, DOOR NO 16, 2nd STREET, SIVANATHAPURAM, SARAVANAMPATTI, COIMBATORE 641035,TAMILNADU, INDIA</a></p>
                                         </div>
                                     </div>
                                 </div>
@@ -1985,9 +1985,11 @@
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
-                        <form action="#" class="subscribe-form wow fadeInRight" data-wow-delay=".4s">
-                            <input type="text" name="subs-email" id="subs-email" placeholder="Your Email">
-                            <button type="submit"><i class="lni lni-telegram-original"></i></button>
+                        <form id="subscribeForm" action="assets/php/mail.php" method="post" class="subscribe-form wow fadeInRight" data-wow-delay=".4s">
+                            <input type="email" name="email" id="subs-email" placeholder="Your Email" required>
+                            <input type="hidden" name="type" value="newsletter">
+                            <button type="submit" aria-label="Subscribe"><i class="lni lni-telegram-original"></i></button>
+                            <div id="subscribeMsg" class="subscribe-submit-message" aria-live="polite"></div>
                         </form>
                     </div>
                 </div>
@@ -2029,16 +2031,16 @@
                             <h4>Service</h4>
                             <ul class="footer-links">
                                 <li>
-                                    <a href="javascript:void(0)">App Development</a>
+                                    <a href="#portfolios" class="service-filter-link" data-filter=".Apps">App Development</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">Web Development</a>
+                                    <a href="#portfolios" class="service-filter-link" data-filter=".Web">Web Development</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">AR/VR Solutions</a>
+                                    <a href="#portfolios" class="service-filter-link" data-filter=".AR_VR">AR/VR Solutions</a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)">Game Development</a>
+                                    <a href="#portfolios" class="service-filter-link" data-filter=".Game">Game Development</a>
                                 </li> 
                             </ul>
                         </div>
@@ -2048,13 +2050,13 @@
                             <h4>Contact</h4>
                             <ul class="footer-contact">
                                 <li>
-                                    <p>+91 8870 876 432</p>
+                                    <p><a href="tel:+918870876432">+91 8870 876 432</a></p>
                                 </li>
                                 <li>
-                                    <p>corporate@viskez.com</p>
+                                    <p><a href="mailto:corporate@viskez.com">corporate@viskez.com</a></p>
                                 </li>
                                 <li>
-                                    <p>VISKEZ TECHNOLOGIES LLP, DOOR NO 16, 2nd STREET, SIVANATHAPURAM, SARAVANAMPATTI, COIMBATORE 641035,TAMILNADU, INDIA</br></p>
+                                    <p><a href="https://maps.app.goo.gl/XG6HqgQNK4wraYi8A" target="_blank" rel="noopener noreferrer">VISKEZ TECHNOLOGIES LLP, DOOR NO 16, 2nd STREET, SIVANATHAPURAM, SARAVANAMPATTI, COIMBATORE 641035,TAMILNADU, INDIA</a></p>
                                 </li>
                             </ul>
                         </div>
@@ -2066,7 +2068,7 @@
                         <div class="col-md-6">
                              <div class="footer-social-links">
                                 <ul class="d-flex">
-                                    <li><a href="javascript:void(0)"><i class="lni lni-facebook-original"></i></a></li>
+                                    <li><a href="https://www.facebook.com/profile.php?id=61590707610289" target="_blank" rel="noopener noreferrer"><i class="lni lni-facebook-original"></i></a></li>
                                     <li><a href="javascript:void(0)"><i class="lni lni-twitter-original"></i></a></li>
                                     <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
                                     <li><a href="javascript:void(0)"><i class="lni lni-instagram-original"></i></a></li>

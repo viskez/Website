@@ -61,6 +61,38 @@
    MixitUp
    ========================================================================== */
 	$('#portfolio').mixItUp();
+
+	function scrollToSection(target) {
+		if (!target) {
+			return;
+		}
+
+		var headerOffset = 80;
+		var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+
+		window.scrollTo({
+			top: targetPosition,
+			behavior: 'smooth'
+		});
+	}
+
+	document.querySelectorAll('.service-filter-link').forEach(function (link) {
+		link.addEventListener('click', function (event) {
+			event.preventDefault();
+
+			var filter = link.getAttribute('data-filter');
+			var portfolioSection = document.querySelector('#portfolios');
+			var filterButton = document.querySelector('.controls .filter[data-filter="' + filter + '"]');
+
+			if (filterButton) {
+				filterButton.click();
+			}
+
+			window.setTimeout(function () {
+				scrollToSection(portfolioSection);
+			}, 50);
+		});
+	});
 	
 	/* Nivo Lightbox
   ========================================================*/   
@@ -75,10 +107,7 @@
 	pageLink.forEach(elem => {
 		elem.addEventListener('click', e => {
 			e.preventDefault();
-			document.querySelector(elem.getAttribute('href')).scrollIntoView({
-				behavior: 'smooth',
-				offsetTop: 1 - 60,
-			});
+			scrollToSection(document.querySelector(elem.getAttribute('href')));
 		});
 	});
 

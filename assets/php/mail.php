@@ -23,6 +23,50 @@ $email = field_value('email');
 $phone = field_value('phone');
 $subject = field_value('subject');
 $message = field_value('message');
+$type = field_value('type');
+$to = 'corporate@viskez.com';
+
+if ($type === 'newsletter') {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        http_response_code(400);
+        echo json_encode([
+            'success' => false,
+            'message' => 'Please enter a valid email address.'
+        ]);
+        exit;
+    }
+
+    $safeEmail = clean_header($email);
+    $emailSubject = 'Newsletter subscription';
+    $emailBody = implode("\n", [
+        'New newsletter subscription request:',
+        '',
+        'Email: ' . $email
+    ]);
+    $headers = [
+        'From: VISKEZ Website <corporate@viskez.com>',
+        'Reply-To: ' . $safeEmail,
+        'Content-Type: text/plain; charset=UTF-8',
+        'X-Mailer: PHP/' . phpversion()
+    ];
+
+    $sent = mail($to, $emailSubject, $emailBody, implode("\r\n", $headers));
+
+    if (!$sent) {
+        http_response_code(500);
+        echo json_encode([
+            'success' => false,
+            'message' => 'Unable to subscribe. Please try again later.'
+        ]);
+        exit;
+    }
+
+    echo json_encode([
+        'success' => true,
+        'message' => 'Subscribed successfully.'
+    ]);
+    exit;
+}
 
 if ($name === '' || $email === '' || $phone === '' || $subject === '' || $message === '') {
     http_response_code(400);
@@ -42,7 +86,6 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit;
 }
 
-$to = 'corporate@viskez.com';
 $safeSubject = clean_header($subject);
 $safeName = clean_header($name);
 $safeEmail = clean_header($email);
